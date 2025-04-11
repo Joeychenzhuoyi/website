@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey to Korea</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Left Content Section */
+        .content-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+
+        .title-group {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        /* Right Image Section */
+        .image-right {
+            flex: 1;
+            background: url('korea.jpg') no-repeat center center;
+            background-size: cover;
+            margin-right: 30px;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e74c3c;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 20px;
+            left: 40px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .image-right {
+                height: 400px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#scenic">Scenic Spots</a>
+        <a href="#food">Foods</a>
+    </nav>
+
+    <div class="content-left">
+        <div class="title-group">
+            <h1>A journey to Korea!</h1>
+            <p class="tagline">
+                South Korea, in East Asia on the southern Korean Peninsula, has a prime geographical location 
+                bordered by North Korea and surrounded by seas. It boasts amazing tourist spots like Hallasan 
+                Mountain for nature lovers, Gyeongbokgung Palace for history seekers, and Everland for family fun. 
+                When it comes to food, the national dish kimchi, sizzling bulgogi, and flavorful bibimbap offer 
+                a delicious taste of Korean culture, making it a must-visit destination.
+            </p>
+        </div>
+    </div>
+
+    <div class="image-right"></div>
+
+    <footer>
+        "Talk with me about your travel experiences in Korea."
+    </footer>
+
+    <script>
+        // Smooth scroll functionality for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href');
+                document.querySelector(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.textShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.textShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
